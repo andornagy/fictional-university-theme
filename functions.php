@@ -2,6 +2,7 @@
 
 require get_theme_file_path( '/inc/search-route.php' );
 require get_theme_file_path( '/inc/like-route.php');
+require get_theme_file_path( '/googlemapsapi.php');
 
 function pageBanner($args = NULL) {
 
@@ -91,7 +92,7 @@ function university_adjust_queries($query) {
 add_action('pre_get_posts', 'university_adjust_queries');
 
 function universityMapKey($api) {
-  $api['key'] = 'AIzaSyCHiuHVNo_vyLg6A3sHbEU3e6eslaqzfmA';
+  $api['key'] = $apikey;
   return $api;
 }
 
