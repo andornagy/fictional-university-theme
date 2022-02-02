@@ -5,9 +5,15 @@
 while (have_posts(  )) {
     the_post(); 
 
+    if (has_excerpt()) { 
+      $excerpt = get_the_excerpt(); 
+   } else { 
+      $excerpt =  wp_trim_words( get_the_content(),18 ); 
+   };
+
     pageBanner(array(
-      'title' => 'Welcome to our blog',
-      'subtitle' => 'Keep up with our latest news.',
+      'title' => get_the_title(),
+      'subtitle' => $excerpt,
     )); ?>
 
    
